@@ -1,0 +1,41 @@
+.form {
+  width: 300px; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+.form form {
+  display: flex;
+  align-items: center;
+}
+
+.form input[type="text"] {
+  flex: 1; /* Take up remaining space */
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #007bff; /* Change the background color as needed */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+  background-color: #0056b3; /* Darker shade of the main color on hover */
+}
+
+.piechart {
+  margin-left: 200px;
+  margin-top: 50px;
+}
+.lines {
+  margin-left: 200px;
+  margin-top: 40px;
+}
