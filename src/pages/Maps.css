@@ -1,0 +1,32 @@
+.map-wrapper {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+.weather-map {
+  height: calc(100vh - 200px);
+  width: 100%;
+  min-height: 500px;
+}
+
+.map-popup {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.map-popup strong {
+  font-size: 15px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+  .weather-map {
+    height: calc(100vh - 160px);
+    min-height: 300px;
+  }
+}
+

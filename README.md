@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+# GlobalWeather Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A real-time weather data visualization dashboard built with React and Plotly.js. Features interactive maps, air quality monitoring, live weather charts, and a dark/light theme toggle.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Global Weather Overview** - Weather cards for cities worldwide showing temperature, humidity, wind speed, and pressure
+- **Real-Time Dashboard** - Live-updating charts (temperature line chart, humidity bar chart, wind speed area chart, wind direction polar chart) with customizable widget visibility
+- **Air Quality Index** - Pollutant distribution (CO, NO2, SO2, PM10, PM2.5, O3) with donut and bar charts, color-coded AQI badge
+- **Interactive Weather Maps** - Leaflet-based interactive map with toggleable weather overlay layers (temperature, precipitation, clouds, wind, pressure). Click anywhere to get local weather data
+- **City Search with Autocomplete** - Debounced search using OpenWeatherMap Geocoding API with dropdown suggestions
+- **Dark/Light Mode** - Theme toggle with localStorage persistence and CSS custom properties
+- **Dashboard Customization** - Toggle visibility of chart widgets with preferences saved to localStorage
+- **Responsive Design** - Collapsible sidebar on mobile, adaptive grid layouts, resizable charts
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React 18** - UI framework with functional components and hooks
+- **React Router v6** - Client-side routing
+- **Plotly.js** (via react-plotly.js) - Interactive data visualization charts
+- **Leaflet** (via react-leaflet) - Interactive maps with weather tile overlays
+- **OpenWeatherMap API** - Weather data, air quality data, geocoding, and map tiles
+- **CSS Custom Properties** - Theme system for dark/light mode
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Structure
 
-### `npm test`
+```
+src/
+  components/      # Reusable UI components (Sidebar, Footer, CitySearch, LoadingSpinner)
+  context/         # React Context (ThemeContext for dark/light mode)
+  pages/           # Page components (Homepage, RealTime, AirQuality, Maps)
+  services/        # API service layer (weatherService.js)
+  assets/          # City images
+  logos/            # Brand logos
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js 16+ and npm
+- An OpenWeatherMap API key (free tier works)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/global-weather-dashboard.git
+   cd global-weather-dashboard
+   ```
 
-### `npm run eject`
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Create a `.env` file in the project root:
+   ```
+   REACT_APP_OWM_API_KEY=your_openweathermap_api_key
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Start the development server:
+   ```bash
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Deployment
 
-## Learn More
+This project is configured for easy deployment to Vercel:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The `build/` folder contains the production-ready static files.
 
-### Code Splitting
+## API Reference
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project uses the [OpenWeatherMap API](https://openweathermap.org/api):
 
-### Analyzing the Bundle Size
+- **Current Weather** - `/data/2.5/weather`
+- **Air Pollution** - `/data/2.5/air_pollution`
+- **Geocoding** - `/geo/1.0/direct`
+- **Weather Map Tiles** - `tile.openweathermap.org/map/{layer}/{z}/{x}/{y}.png`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## License
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT

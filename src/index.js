@@ -1,25 +1,25 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-// import App from "./App";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Homepage from "./Homepage";
-import RealTime from "./RealTime0";
-import AirQuality from "./AirQuality";
-import Map from "./Maps0";
-const root = ReactDOM.createRoot(document.getElementById("root"));
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext';
+import Homepage from './pages/Homepage';
+import RealTime from './pages/RealTime';
+import AirQuality from './pages/AirQuality';
+import Maps from './pages/Maps';
+import './index.css';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path={"/"} Component={Homepage} />
-        <Route path={"/realtime"} Component={RealTime} />
-        <Route path={"/airquality"} Component={AirQuality} />
-        <Route path={"/maps"} Component={Map} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/realtime" element={<RealTime />} />
+          <Route path="/airquality" element={<AirQuality />} />
+          <Route path="/maps" element={<Maps />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analyebVitics endpoint. Learn more: https://bit.ly/CRA-vitals
